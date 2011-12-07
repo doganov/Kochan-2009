@@ -1,21 +1,13 @@
-SHELL = /bin/sh
-CC = gcc
-CFLAGS = `gnustep-config --objc-flags`
-LIBS = -lobjc -lgnustep-base
-SRC=$(wildcard *.m)
-OBJ=$(basename $(SRC))
-D=$(addsuffix .d, $(OBJ))
-COMPONENTS=Fraction FractionTest
-SIMPLE_OBJ=$(filter-out $(COMPONENTS), $(OBJ))
+include Makefile.in
 
-.PHONY: clean
+SUBDIRS=prog-7-1
 
-all: $(SIMPLE_OBJ) Fraction
+.PHONY: $(SUBDIRS)
 
-clean:
-	rm -fv $(OBJ) $(D)
+all: $(OBJ) $(SUBDIRS)
 
-Fraction: Fraction.m FractionTest.m
+$(SUBDIRS): 
+	$(MAKE) $(MFLAGS) -C $@ all
 
-%: %.m
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+clean: default_clean
+	-for d in $(SUBDIRS); do $(MAKE) $(MFLAGS) -C $$d clean; done

@@ -1,0 +1,21 @@
+SHELL = /bin/sh
+CC = gcc
+CFLAGS = $(shell gnustep-config --objc-flags)
+LIBS = -lobjc -lgnustep-base
+SRC=$(wildcard *.m)
+OBJ=$(basename $(SRC))
+D=$(addsuffix .d, $(OBJ))
+
+.PHONY: clean default_clean
+
+# You must define "all" later
+default: all
+
+# You could redefine "clean" later but don't forget to include "default_clean" in it's dependencies
+clean: default_clean
+
+default_clean:
+	rm -fv $(OBJ) $(D)
+
+%: %.m
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
