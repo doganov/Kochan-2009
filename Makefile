@@ -1,6 +1,6 @@
 include Makefile.in
 
-SUBDIRS=prog-7-1
+SUBDIRS=prog-7-1 prog-7-2
 
 .PHONY: $(SUBDIRS)
 
