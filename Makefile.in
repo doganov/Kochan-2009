@@ -1,6 +1,6 @@
 SHELL = /bin/sh
-CC = clang
-CFLAGS = $(shell gnustep-config --objc-flags) -I/usr/lib/gcc/i486-linux-gnu/4.4/include
+CC = gcc
+CFLAGS = $(shell gnustep-config --objc-flags)
 LIBS = -lobjc -lgnustep-base
 SRC=$(wildcard *.m)
 OBJ=$(basename $(SRC))
