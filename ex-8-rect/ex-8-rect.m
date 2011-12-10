@@ -1,6 +1,7 @@
 // Exercises 8.4 to 8.7
 
 #import "Rectangle.h"
+#import "Circle.h"
 #import "XYPoint.h"
 
 int main (int argc, char *argv[])
@@ -31,6 +32,14 @@ int main (int argc, char *argv[])
   NSLog (@"Translated origin at (%i, %i)",
          myRect.origin.x, myRect.origin.y);
   [vector release];
+
+  // Exercise 8.5
+  Circle *circle = [[Circle alloc] init];
+  circle.radius = 10;
+  NSLog (@"Circle Area = %i, Circumference = %i",
+         [circle area], [circle perimeter]);
+  [circle release];
+  // We've got the idea, so let's skip the triangle here
 
   [myRect release];
   [myPoint release];
