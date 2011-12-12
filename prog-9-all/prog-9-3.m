@@ -1,5 +1,3 @@
-// Illustrate Dynamic Typing and Binding
-
 #import "Square.h"
 
 int main (int argc, char *argv[])
