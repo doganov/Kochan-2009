@@ -2,7 +2,6 @@
 
 #import "Fraction.h"
 #import "Complex.h"
-#import "XYPoint.h"
 
 int main (int argc, char *argv[])
 {
