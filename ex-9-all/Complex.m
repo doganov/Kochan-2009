@@ -17,7 +17,7 @@
   imaginary = b;
 }
 
--(Complex *) add: (Complex *) f
+-(id) add: (id) f
 {
   Complex *result = [[Complex alloc] init];
 

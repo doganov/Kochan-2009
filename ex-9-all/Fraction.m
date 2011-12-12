@@ -23,7 +23,7 @@
   denominator = d;
 }
 
--(Fraction *) add: (Fraction *) f
+-(id) add: (id) f
 {
   // To add two fractions:
   // a/b + c/d = ((a*d) + (b*c)) / (b * d)
@@ -32,8 +32,8 @@
   Fraction *result = [[Fraction alloc] init];
   int resultNum, resultDenom;
 
-  resultNum = numerator * f.denominator + denominator * f.numerator;
-  resultDenom = denominator * f.denominator;
+  resultNum = numerator * [f denominator] + denominator * [f numerator];
+  resultDenom = denominator * [f denominator];
 
   [result setTo: resultNum over: resultDenom];
   [result reduce];

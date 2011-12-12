@@ -13,7 +13,7 @@
 -(void) print;
 -(void) setTo: (int) n over: (int) d;
 -(double) convertToNum;
--(Fraction *) add: (Fraction *) f;
+-(id) add: (id) f;
 -(void) reduce;
 
 @end
