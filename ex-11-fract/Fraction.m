@@ -2,6 +2,11 @@
 
 @implementation Fraction
 
+int abs(int n)
+{
+  return (n < 0) ? -n : n;
+}
+
 @synthesize numerator, denominator;
 
 -(void) print
@@ -25,8 +30,8 @@
 
 -(void) reduce
 {
-  int u = numerator;
-  int v = denominator;
+  int u = abs(numerator);
+  int v = abs(denominator);
   int temp;
 
   while (v != 0) {
