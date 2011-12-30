@@ -1,5 +1,20 @@
 #import "Music.h"
 
+void displaySearch(id target, NSString *query)
+{
+  NSLog (@"Searching for '%@'...", query);
+  NSArray *result = [target search: query];
+  
+  if ([result count] == 0)
+    NSLog (@"No entries found.");
+  else {
+    NSLog (@"%i entry(es) found.", [result count]);
+    int i = 0;
+    for (id item in result)
+      NSLog (@"%i. %@", ++i, item);
+  }
+}
+
 int main(int argc, char *argv[])
 {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -61,6 +76,10 @@ int main(int argc, char *argv[])
   NSLog (@"%@", [dp description]);
   [dp printUsage];
 
+  // Search
+  displaySearch(dp, @"uck");
+  displaySearch(dp, @"urpl");
+
   // Remove "Pictured Within" playlist
   [dp removePlaylist: picWithin];
   NSLog (@"%@", [dp description]);
@@ -70,7 +89,6 @@ int main(int argc, char *argv[])
   [[dp library] removeSong: s3];
   NSLog (@"%@", [dp description]);
   [dp printUsage];
-
 
   [s1 release];
   [s2 release];

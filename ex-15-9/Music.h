@@ -18,6 +18,7 @@
                  album: (NSString*) analbum
                minutes: (NSInteger) aminutes
                seconds: (NSInteger) aseconds;
+-(BOOL) match: (NSString*) query;
 @end
 
 @class MusicCollection;
@@ -34,6 +35,8 @@
 -(void) addSong: (Song*) song;
 -(void) removeSong: (Song*) song;
 -(NSArray*) songs;
+-(BOOL) match: (NSString*) query;
+-(NSArray*) search: (NSString*) query;
 @end
 
 @interface MusicCollection : NSObject
@@ -47,4 +50,5 @@
 -(NSArray*) playlists;
 -(Playlist*) library;
 -(void) printUsage;
+-(NSArray*) search: (NSString*) query;
 @end

@@ -45,6 +45,21 @@
            title, artist, album, min, sec];
 }
 
+-(BOOL) match: (NSString*) query
+{
+  NSRange r;
+  r = [title rangeOfString: query options: NSCaseInsensitiveSearch];
+  if (r.location != NSNotFound) return YES;
+
+  r = [album rangeOfString: query options: NSCaseInsensitiveSearch];
+  if (r.location != NSNotFound) return YES;
+
+  r = [artist rangeOfString: query options: NSCaseInsensitiveSearch];
+  if (r.location != NSNotFound) return YES;
+
+  return NO;
+}
+
 @end
 
 @implementation Playlist
@@ -102,6 +117,27 @@
 -(NSString*) description
 {
   return [NSString stringWithFormat: @"Playlist %@: %@", name, songs];
+}
+
+-(BOOL) match: (NSString*) query
+{
+  NSRange r = [name rangeOfString: query options: NSCaseInsensitiveSearch];
+  return r.location != NSNotFound;
+}
+
+-(NSArray*) search: (NSString*) query
+{
+  NSMutableArray *result = [NSMutableArray array];
+
+  if ([self match: query])
+    [result addObject: self];
+
+  for (Song *song in songs) {
+    if ([song match: query])
+      [result addObject: song];
+  }
+
+  return result;
 }
 
 @end
@@ -189,9 +225,18 @@
   }
 }
 
-//+(void) forgetSong: (Song *) song
-//{
-//}
+-(NSArray*) search: (NSString*) query
+{
+  NSMutableArray *result = [NSMutableArray array];
+
+  for (Playlist *pl in playlists) {
+    NSArray *subresult = [pl search: query];
+    [result addObjectsFromArray: subresult];
+  }
+
+  return result;
+}
+
 @end
 
 @implementation MusicCollection (private)
