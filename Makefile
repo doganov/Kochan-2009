@@ -1,6 +1,6 @@
 include Makefile.in
 
-SUBDIRS=$(shell ls --file-type | grep /$)
+SUBDIRS=$(shell ls -F | grep /$)
 
 .PHONY: $(SUBDIRS)
 

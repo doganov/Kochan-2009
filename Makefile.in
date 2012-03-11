@@ -6,6 +6,12 @@ SRC=$(wildcard *.m)
 OBJ=$(basename $(SRC))
 D=$(addsuffix .d, $(OBJ))
 
+OS := $(shell uname -s)
+ifeq ($(OS), Darwin)
+CFLAGS = -framework Foundation
+LIBS =
+endif
+
 .PHONY: clean default_clean
 
 # You must define "all" later
