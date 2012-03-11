@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import <XYPoint.h>
-#import <GraphicObject.h>
+#import "XYPoint.h"
+#import "GraphicObject.h"
 
 @interface Rectangle: GraphicObject
 {
