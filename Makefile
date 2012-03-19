@@ -1,6 +1,6 @@
 include Makefile.in
 
-SUBDIRS=$(shell ls -F | grep /$)
+SUBDIRS=$(shell ls -F | grep /$ | grep -v ^iPhone)
 
 .PHONY: $(SUBDIRS)
 

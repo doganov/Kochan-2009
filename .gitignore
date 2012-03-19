@@ -1,2 +1,4 @@
 *~
 *.d
+.DS_Store
+xcuserdata
