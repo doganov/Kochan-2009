@@ -17,6 +17,8 @@
 		53A8B5761555651700DB281D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53A8B5741555651700DB281D /* ViewController.xib */; };
 		53A8B57E15557B2600DB281D /* Fraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A8B57D15557B2600DB281D /* Fraction.m */; };
 		53A8B581155582A400DB281D /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A8B580155582A400DB281D /* Calculator.m */; };
+		53E8A5C71556C3740013091D /* Calculator-iconX2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E8A5C61556C3740013091D /* Calculator-iconX2.png */; };
+		53E8A5C91556C41E0013091D /* Calculator-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E8A5C81556C41E0013091D /* Calculator-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		53A8B57D15557B2600DB281D /* Fraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fraction.m; sourceTree = "<group>"; };
 		53A8B57F155582A300DB281D /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		53A8B580155582A400DB281D /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
+		53E8A5C61556C3740013091D /* Calculator-iconX2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calculator-iconX2.png"; sourceTree = "<group>"; };
+		53E8A5C81556C41E0013091D /* Calculator-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calculator-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		53A8B5501555651600DB281D = {
 			isa = PBXGroup;
 			children = (
+				53E8A5C81556C41E0013091D /* Calculator-icon.png */,
+				53E8A5C61556C3740013091D /* Calculator-iconX2.png */,
 				53A8B5651555651700DB281D /* Fraction_Calculator */,
 				53A8B55E1555651700DB281D /* Frameworks */,
 				53A8B55C1555651700DB281D /* Products */,
@@ -161,6 +167,8 @@
 			files = (
 				53A8B56A1555651700DB281D /* InfoPlist.strings in Resources */,
 				53A8B5761555651700DB281D /* ViewController.xib in Resources */,
+				53E8A5C71556C3740013091D /* Calculator-iconX2.png in Resources */,
+				53E8A5C91556C41E0013091D /* Calculator-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +293,7 @@
 				53A8B57B1555651700DB281D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
