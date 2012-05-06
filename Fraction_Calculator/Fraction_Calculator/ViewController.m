@@ -152,6 +152,13 @@
     [display setText: displayString];
 }
 
+-(IBAction)clickConvert:(id)sender
+{
+    [displayString setString: [NSString stringWithFormat: @"%lf",
+                               [myCalculator.accumulator convertToNum]]];
+    [display setText: displayString];
+}
+
 -(void)dealloc
 {
     [myCalculator release];

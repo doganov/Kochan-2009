@@ -40,5 +40,6 @@
 -(IBAction)clickOver:(id)sender;
 -(IBAction)clickEquals:(id)sender;
 -(IBAction)clickClear:(id)sender;
+-(IBAction)clickConvert:(id)sender;
 
 @end
