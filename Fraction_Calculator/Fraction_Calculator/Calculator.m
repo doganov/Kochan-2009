@@ -52,6 +52,9 @@
     accumulator.numerator = result.numerator;
     accumulator.denominator = result.denominator;
     
+    operand1.numerator = accumulator.numerator;
+    operand1.denominator = accumulator.denominator;
+    
     return accumulator;
 }
 

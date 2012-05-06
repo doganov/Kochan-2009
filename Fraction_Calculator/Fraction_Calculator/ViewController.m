@@ -41,6 +41,11 @@
 
 - (void)processOp:(char)theOp
 {
+    if (![self storeFracPart]) return;
+    
+    if (!firstOperand)
+        [myCalculator performOperation: op];
+    
     NSString *opStr;
     
     op = theOp;
@@ -59,8 +64,6 @@
             opStr = @" ÷ ";
             break;
     }
-    
-    if (![self storeFracPart]) return;
     
     firstOperand = NO;
     isNumerator = YES;
@@ -100,7 +103,6 @@
     else
     {
         myCalculator.operand2.denominator = currentNumber;
-        firstOperand = YES;
     }
     
     currentNumber = 0;
@@ -164,8 +166,8 @@
     
     currentNumber = 0;
     isNumerator = YES;
-    firstOperand = YES;
-    [displayString setString: @""];
+    firstOperand = NO;
+    //[displayString setString: @""];
 }
 
 -(IBAction)clickClear:(id)sender
