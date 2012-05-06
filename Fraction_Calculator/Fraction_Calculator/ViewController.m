@@ -60,7 +60,8 @@
             break;
     }
     
-    [self storeFracPart];
+    if (![self storeFracPart]) return;
+    
     firstOperand = NO;
     isNumerator = YES;
     currentNumberIsNegative = NO;
@@ -69,8 +70,15 @@
     [display setText: displayString];
 }
 
-- (void)storeFracPart
+- (BOOL)storeFracPart
 {
+    if (!isNumerator && currentNumber == 0)
+    {
+        [displayString setString: @"Error"];
+        [display setText: displayString];
+        return NO;
+    }
+    
     if (currentNumberIsNegative)
         currentNumber = -currentNumber;
     
@@ -97,6 +105,7 @@
     
     currentNumber = 0;
     currentNumberIsNegative = NO;
+    return YES;
 }
 
 -(void)negateCurrentNumber
@@ -108,10 +117,12 @@
 
 -(IBAction)clickOver:(id)sender
 {
-    [self storeFracPart];
-    isNumerator = NO;
-    [displayString appendString: @"/"];
-    [display setText: displayString];
+    if ([self storeFracPart])
+    {
+        isNumerator = NO;
+        [displayString appendString: @"/"];
+        [display setText: displayString];
+    }
 }
 
 // Arithmetic Operation keys
@@ -143,7 +154,8 @@
 
 -(IBAction)clickEquals:(id)sender
 {
-    [self storeFracPart];
+    if (![self storeFracPart]) return;
+    
     [myCalculator performOperation: op];
     
     [displayString appendString: @" = "];

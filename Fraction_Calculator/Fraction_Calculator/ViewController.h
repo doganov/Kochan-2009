@@ -22,7 +22,7 @@
 
 -(void) processDigit: (int) digit;
 -(void) processOp: (char) theOp;
--(void) storeFracPart;
+-(BOOL) storeFracPart;
 -(void) negateCurrentNumber;
 
 // Numeric keys
