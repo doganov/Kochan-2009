@@ -20,6 +20,7 @@
     
     firstOperand = YES;
     isNumerator = YES;
+    currentNumberIsNegative = NO;
     self.displayString = [NSMutableString stringWithCapacity: 40];
     myCalculator = [[Calculator alloc] init];
 }
@@ -62,6 +63,7 @@
     [self storeFracPart];
     firstOperand = NO;
     isNumerator = YES;
+    currentNumberIsNegative = NO;
     
     [displayString appendString: opStr];
     [display setText: displayString];
@@ -69,6 +71,9 @@
 
 - (void)storeFracPart
 {
+    if (currentNumberIsNegative)
+        currentNumber = -currentNumber;
+    
     if (firstOperand)
     {
         if (isNumerator)
@@ -91,6 +96,14 @@
     }
     
     currentNumber = 0;
+    currentNumberIsNegative = NO;
+}
+
+-(void)negateCurrentNumber
+{
+    currentNumberIsNegative = YES;
+    [displayString appendString: @" -"];
+    [display setText: displayString];
 }
 
 -(IBAction)clickOver:(id)sender
@@ -110,7 +123,10 @@
 
 -(IBAction)clickMinus:(id)sender
 {
-    [self processOp: '-'];
+    if (isNumerator && currentNumber == 0 && !currentNumberIsNegative)
+        [self negateCurrentNumber];
+    else
+        [self processOp: '-'];
 }
 
 -(IBAction)clickMultiply:(id)sender

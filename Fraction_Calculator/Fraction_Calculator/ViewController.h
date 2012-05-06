@@ -13,7 +13,7 @@
     
     int currentNumber;
     NSMutableString *displayString;
-    BOOL firstOperand, isNumerator;
+    BOOL firstOperand, isNumerator, currentNumberIsNegative;
     Calculator *myCalculator;
 }
 
@@ -23,6 +23,7 @@
 -(void) processDigit: (int) digit;
 -(void) processOp: (char) theOp;
 -(void) storeFracPart;
+-(void) negateCurrentNumber;
 
 // Numeric keys
 
